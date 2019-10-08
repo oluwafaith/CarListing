@@ -1,0 +1,13 @@
+{
+    "carslisting": [{
+        "brand": "",
+        "model": "",
+        "telephone": "",
+        "email": "",
+        "price": "",
+        "color": "",
+        "password": "",
+        "image": "",
+        "id": 0
+    }]
+}
