@@ -1,13 +1,27 @@
 {
-    "carslisting": [{
-        "brand": "",
-        "model": "",
-        "telephone": "",
-        "email": "",
-        "price": "",
-        "color": "",
-        "password": "",
-        "image": "",
-        "id": 0
-    }]
+  "carslisting": [
+    {
+      "id": 0,
+      "brand": "",
+      "model": "",
+      "telephone": "",
+      "email": "",
+      "price": "",
+      "isDeleted": "",
+      "color": "",
+      "password": "",
+      "image": ""
+    },
+    {
+      "brand": "toyota",
+      "model": "camry",
+      "telephone": "08025478956",
+      "email": "ajhjaf@gjdh.com",
+      "price": "1,000,000",
+      "color": "#80ff80",
+      "password": "Submit Listing",
+      "image": "download.jpg",
+      "id": 1
+    }
+  ]
 }

@@ -44,55 +44,58 @@
         </div>
     </nav>
 
-    <div class="jumbotron">
-        <h2 class="display-4">SIGN <b>IN</b></h2>
-        <form>
-            <div class="form-group">
-                <label for="login_email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+    <body>
 
-                <label for="login_pw" class="mt-3">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required>
-            </div><br>
-            <button type="submit" class="btn btn-dark" id="btnSubmit">Submit</button>
-        </form>
-        <script src=" \jquery-3.4.1.min.js "></script>
-        </script>
+        <div class="jumbotron">
+            <h2 class="display-4"><b>All cars</b></h2>
+            <table class="table table-bordered table-striped" id="cars">
+                <tr>
+                    <th>S.No</th>
+                    <th>brand</th>
+                    <th>model</th>
+                    <th>price</th>
+                    <th>color</th>
+                    <th>image</th>
+                </tr>
+            </table>
+        </div>
+        <script src=" \jquery-3.4.1.min.js"></script>
+
         <script>
             $(document).ready(function() {
-
-                $("#btnSubmit").on('click', function(e) {
-                    e.preventDefault();
-                    var $email = $("#email").val();
-                    var $password = $("#password").val();
-
-                    $.ajax({
-                        method: "GET",
-                        url: `http://localhost:3000/carslisting?email=${$email}`,
-                        success: function(selector) {
-                            console.log(selector);
-                            if (!selector.length) {
-                                alert('successful')
-                                location.replace('services.html');
-                            }
-
-                            if (selector[0].password !== $password) {
-                                alert('wrong credentials')
-                                return;
-                            }
-
-                            if (cars[3].email === 'email') {
-                                location.replace('services.html')
-                            }
-
-
-                        }
+                $.getJSON("http://localhost:3000/carslisting", function(data) {
+                    //e.preventDefault();
+                    var selector = '';
+                    $.each(data, function(key, value) {
+                        selector += '<tr>';
+                        selector += '<td>' + value.id + '</td>';
+                        selector += '<td>' + value.brand + '</td>';
+                        selector += '<td>' + value.model + '</td>';
+                        selector += '<td>' + value.price + '</td>';
+                        selector += '<td>' + value.color + '</td>';
+                        selector += '<td>' + value.image + '</td>';
+                        selector += '<td>' + `<input type ="button" onclick="deleteitem(${value.id})" data-id${value.id} id="deleteDesign" value = "delete"/>` + '</td>';
+                        selector += '</tr>';
+                        var id = $(data.target).attr("value.id");
                     });
+                    console.log('selector');
+                    $('#cars').append(selector);
                 });
             });
+
+            function deleteitem(id) {
+                $.ajax({
+                    url: `http://localhost:3000/carslisting/${id}`,
+                    type: "DELETE",
+
+                }).done(function() {
+                    location.reload()
+                    alert("listing Successfully Deleted");
+                });
+
+            }
         </script>
 
-
-</body>
+    </body>
 
 </html>

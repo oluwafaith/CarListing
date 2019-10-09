@@ -43,53 +43,48 @@
             </div>
         </div>
     </nav>
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+    <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+    </div>
+    </form>
+    </div>
+    <p> Our services include:</p>
+    <ul>
+        <li>Customer Experience</li>
+        <li>Referrals</li>
+        <li>inspection</li>
+        <li>cooperate services</li>
+    </ul>
+    </div>
+    </section>
+
+    <script src=" \jquery-3.4.1.min.js "></script>
+    </script>
     <script>
         $(document).ready(function() {
-            $('form').on('submit', function(e) {
-                e.preventDefault();
-                let brand = $('#brand').val();
-                let model = $('#model').val();
-                let telephone = $('#telephone').val();
-                let email = $('#email').val();
-                let price = $('#price').val();
-                let isDeleted = $('#isDeleted').val();
-                let color = $('#color').val();
-                let password = $('#password').val();
-                let image = $('#image').val();
-                console.log(brand)
-                console.log(model)
-                console.log(telephone)
-                console.log(email)
-                console.log(price)
-                console.log(isDeleted)
-                console.log(color)
-                console.log(password)
-                console.log(image)
-                $.ajax({
-                    url: "http://localhost:3000/carslisting",
-                    success: function(result) {
-                        // $("#div1").html(result);
-                        console.log(result)
-                    },
-                    method: "POST",
-                    data: {
-                        brand,
-                        model,
-                        telephone,
-                        email,
-                        price,
-                        isDeleted,
-                        color,
-                        password,
-                        image
-                    }
-                });
-            })
-
-        });
+            $("ul").append("<li> append list item");
+        })
     </script>
-
 </body>
 
 </html>
