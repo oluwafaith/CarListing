@@ -45,7 +45,7 @@
             </div>
         </div>
     </nav>
-    <form>
+    <form id="updateForm">
         <fieldset>
             <legend>Place your order and sign up</legend>
             <label for="brand">Brand</label>
@@ -77,85 +77,86 @@
             <label class="upload" for="upload">Select vehicle image</label>
             <input type="file" id='image' name="" class="upload"><br>
             <br>
-            <input type="submit" name="Login" id='password' value="Submit Listing">
+            <input type="submit" name="Login" id='password' value="Update Listing">
 
         </fieldset>
     </form>
     <script src=" \jquery-3.4.1.min.js">
     </script>
-    <script>
-        $(document).ready(function() {
+    < script src=".\index.js">
+        </script>
+        <script>
+            $(document).ready(function() {
 
-            const urlParams = new URLSearchParams(window.location.search);
+                const urlParams = new URLSearchParams(window.location.search);
 
-            $('form').on('submit', function(e) {
-                    e.preventDefault();
-                    let brand = $('#brand').val();
-                    let model = $('#model').val();
-                    let telephone = $('#telephone').val();
-                    let email = $('#email').val();
-                    let price = $('#price').val();
-                    let color = $('#color').val();
-                    let password = $('#password').val();
-                    let image = $('#image').val().split("\\").pop();
-                    console.log(brand)
-                    console.log(model)
-                    console.log(telephone)
-                    console.log(email)
-                    console.log(price)
-                    console.log(color)
-                    console.log(image)
+                $('form').on('submit', function(e) {
+                        e.preventDefault();
+                        let brand = $('#brand').val();
+                        let model = $('#model').val();
+                        let telephone = $('#telephone').val();
+                        let email = $('#email').val();
+                        let price = $('#price').val();
+                        let color = $('#color').val();
+                        let password = $('#password').val();
+                        let image = $('#image').val().split("\\").pop();
+                        console.log(brand)
+                        console.log(model)
+                        console.log(telephone)
+                        console.log(email)
+                        console.log(price)
+                        console.log(color)
+                        console.log(image)
 
-                    $.ajax({
-                        url: "http://localhost:3000/carslisting",
-                        success: function(result) {
-                            location.reload()
-                                // $("#div1").html(result);     
-                            console.log(result)
-                        },
-                        method: "POST",
-                        data: {
-                            brand,
-                            model,
-                            telephone,
-                            email,
-                            price,
-                            color,
-                            password,
-                            image
+                        $.ajax({
+                            url: "http://localhost:3000/carslisting",
+                            success: function(result) {
+                                location.reload()
+                                    // $("#div1").html(result);     
+                                console.log(result)
+                            },
+                            method: "POST",
+                            data: {
+                                brand,
+                                model,
+                                telephone,
+                                email,
+                                price,
+                                color,
+                                password,
+                                image
 
-                        }
-                    });
-                })
-                // get from db
-            $.ajax({
-                url: "http://localhost:3000/carslisting",
-                type: "GET",
-                success: function(response) {
-                    let mapped = response.map(car => {
+                            }
+                        });
+                    })
+                    // get from db
+                $.ajax({
+                    url: "http://localhost:3000/carslisting",
+                    type: "GET",
+                    success: function(response) {
+                        let mapped = response.map(car => {
 
-                        return `<div class="col-sm-3">
-                                                <div class="card" style="width: 18rem;">
-                                                    <img class="card-img-top" src="/img/${car.image} "/>
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">${car.brand} ${car.model}</h5>
-                                                        <p class="card-text">it allgoes for 1,000,000</p>
-                                                        <a href="listing.html?id=${car.id}" class="btn btn-primary">view me</a>
-                                                    </div>
-                                                </div>
-                                            </div>`;
-                    });
-                    $("#allcars").html(mapped);
-                }
+                            return `<div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="/img/${car.image} "/>
+                    <div class="card-body">
+                        <h5 class="card-title">${car.brand} ${car.model}</h5>
+                        <p class="card-text">it allgoes for 1,000,000</p>
+                        <a href="listing.html?id=${car.id}" class="btn btn-primary">view me</a>
+                    </div>
+                </div>
+            </div>`;
+                        });
+                        $("#allcars").html(mapped);
+                    }
+                });
+
+
+
+
+
             });
-
-
-
-
-
-        });
-    </script>
-
+        </script>
 </body>
 
 </html>

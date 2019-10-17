@@ -32,7 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Services.html">Services</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="update.html">Update</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Listing.html">Listing</a>
                     </li>
@@ -62,6 +64,7 @@
         <script src=" \jquery-3.4.1.min.js"></script>
 
         <script>
+            //postdatatotable
             $(document).ready(function() {
                 $.getJSON("http://localhost:3000/carslisting", function(data) {
                     //e.preventDefault();
@@ -75,6 +78,7 @@
                         selector += '<td>' + value.color + '</td>';
                         selector += '<td>' + value.image + '</td>';
                         selector += '<td>' + `<input type ="button" onclick="deleteitem(${value.id})" data-id${value.id} id="deleteDesign" value = "delete"/>` + '</td>';
+                        selector += '<td>' + `<input type ="button" onclick="updateitem(${value.id})" data-id${value.id} id="updateDesign" value = "update"/>` + '</td>';
                         selector += '</tr>';
                         var id = $(data.target).attr("value.id");
                     });
@@ -82,7 +86,7 @@
                     $('#cars').append(selector);
                 });
             });
-
+            //deletedata
             function deleteitem(id) {
                 $.ajax({
                     url: `http://localhost:3000/carslisting/${id}`,
@@ -94,7 +98,45 @@
                 });
 
             }
+            //updatedata
+            $('#updateForm').on('submit', function(e) {
+                e.preventDefault();
+                let brand = $('#brand').val();
+                let model = $('#model').val();
+                let telephone = $('#telephone').val();
+                let email = $('#email').val();
+                let price = $('#price').val();
+                let color = $('#color').val();
+                let password = $('#password').val();
+                let image = $('#image').val().split("\\").pop();
+                // console.log(brand)
+                // console.log(model)
+                // console.log(telephone)
+                // console.log(email)
+                // console.log(price)
+                // console.log(color)
+                // console.log(image)
+
+                $.ajax({
+                    url: `http://localhost:3000/carslisting/${id}`,
+                    type: "PATCH",
+                    data: {
+                        brand,
+                        model,
+                        telephone,
+                        email,
+                        price,
+                        color,
+                        password,
+                        image
+                    }
+                }).done(function() {
+
+                    alert("carlisting Successfully Updated");
+                });
+            });
         </script>
+        <script src=".\index.js"></script>
 
     </body>
 

@@ -1,18 +1,6 @@
 {
   "carslisting": [
     {
-      "id": 0,
-      "brand": "",
-      "model": "",
-      "telephone": "",
-      "email": "",
-      "price": "",
-      "isDeleted": "",
-      "color": "",
-      "password": "",
-      "image": ""
-    },
-    {
       "brand": "toyota",
       "model": "camry",
       "telephone": "08025478956",
@@ -22,6 +10,28 @@
       "password": "Submit Listing",
       "image": "download.jpg",
       "id": 1
+    },
+    {
+      "brand": "lexus",
+      "model": "ariena",
+      "telephone": "080574452214",
+      "email": "ajhjaf@gjdh.com",
+      "price": "1,000,000",
+      "color": "#ffff80",
+      "password": "Submit Listing",
+      "image": "download.png",
+      "id": 2
+    },
+    {
+      "brand": "toyota",
+      "model": "camry",
+      "telephone": "",
+      "email": "janepaul2001@yahoo.com",
+      "price": "1,000,000",
+      "color": "#000000",
+      "password": "Submit Listing",
+      "image": "",
+      "id": 3
     }
   ]
 }
