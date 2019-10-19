@@ -24,7 +24,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="signup.html">signup</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="About.html">About</a>
@@ -36,6 +36,9 @@
                         <a class="nav-link" href="update.html">Update</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="Listing.html">Listing</a>
                     </li>
                     <li class="nav-item">
@@ -45,117 +48,86 @@
             </div>
         </div>
     </nav>
-    <form id="updateForm">
-        <fieldset>
-            <legend>Place your order and sign up</legend>
-            <label for="brand">Brand</label>
-            <input type="text" name="" id="brand" placeholder="Brand"> <br>
-            <label for="select toyota model">Select Toyota Model</label>
-            <select name="Toyota">
-                  <option value="prius"> prius</option>
-                  <option value="tacoma"><tacoma/option>
-                  <option value="yaris">yaris</option>
-                  <option value="camry">camry</option>
-                  <option value="cruiser">cruiser</option>
-                  <option value="sienna">aienna</option>
-                  <option value="rav 4">rav 4</option>
-                  <option value="tundra">tundra</option>
-                </select>
-            <br>
-            <label for="model">model</label>
-            <input type="text" id='model' name="" placeholder="Enter model"> <br>
-            <label for="telephone">telephone</label>
-            <input type="tel" id='telephone' name="" placeholder="Enter phone number"><br>
-            <label for="email">email</label>
-            <input type="text" id='email' name="" placeholder="Enter email"><br>
-            <label for="price">price</label>
-            <input type="text" id='price' name="" placeholder="Max Price"><br>
-            <label for="color">color</label>
-            <input type="color" id='color' name="" placeholder="Enter color"><br>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <label class="upload" for="upload">Select vehicle image</label>
-            <input type="file" id='image' name="" class="upload"><br>
-            <br>
-            <input type="submit" name="Login" id='password' value="Update Listing">
+    <div class="container my-4">
+        <div class="card mx-auto my-auto" style="width: 200%; max-width: 32rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">Update a car</h1>
 
-        </fieldset>
-    </form>
-    <script src=" \jquery-3.4.1.min.js">
+                    <form id="updateForm">
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" name="brand" id="brand" class="form-control" placeholder="Brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" name="model" id="model" class="form-control" placeholder="Model" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Year">Year</label>
+                            <input type="text" name="year" id="year" class="form-control" placeholder="Year" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" id="price" class="form-control" placeholder="Price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="color">Color</label>
+                            <input type="color" name="color" id="color" class="form-control" placeholder="color" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image Url</label>
+                            <input type="url" name="image" id="image" class="form-control" placeholder="image url" required>
+                        </div>
+                        <input type="submit" value="Update" class="btn btn-secondary btn-block">
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <script src=" \jquery-3.4.1.min.js ">
     </script>
-    < script src=".\index.js">
-        </script>
-        <script>
-            $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-                const urlParams = new URLSearchParams(window.location.search);
+            const urlParams = new URLSearchParams(window.location.search);
 
-                $('form').on('submit', function(e) {
-                        e.preventDefault();
-                        let brand = $('#brand').val();
-                        let model = $('#model').val();
-                        let telephone = $('#telephone').val();
-                        let email = $('#email').val();
-                        let price = $('#price').val();
-                        let color = $('#color').val();
-                        let password = $('#password').val();
-                        let image = $('#image').val().split("\\").pop();
-                        console.log(brand)
-                        console.log(model)
-                        console.log(telephone)
-                        console.log(email)
-                        console.log(price)
-                        console.log(color)
-                        console.log(image)
+            $('#updateForm').on('submit', function(e) {
+                e.preventDefault();
+                let brand = $('#brand').val();
+                let model = $('#model').val();
+                let year = $('#year').val();
+                let price = $('#price').val();
+                let color = $('#color').val();
+                let image = $('#image').val();
 
-                        $.ajax({
-                            url: "http://localhost:3000/carslisting",
-                            success: function(result) {
-                                location.reload()
-                                    // $("#div1").html(result);     
-                                console.log(result)
-                            },
-                            method: "POST",
-                            data: {
-                                brand,
-                                model,
-                                telephone,
-                                email,
-                                price,
-                                color,
-                                password,
-                                image
-
-                            }
-                        });
-                    })
-                    // get from db
+                console.log(brand)
+                console.log(model)
+                console.log(year)
+                console.log(price)
+                console.log(color)
+                console.log(image)
                 $.ajax({
                     url: "http://localhost:3000/carslisting",
-                    type: "GET",
-                    success: function(response) {
-                        let mapped = response.map(car => {
+                    success: function(result) {
+                        location.reload()
+                            // $("#div1").html(result);     
+                        console.log(result)
+                    },
+                    method: "PATCH",
+                    data: {
+                        brand,
+                        model,
+                        year,
+                        price,
+                        color,
+                        image
 
-                            return `<div class="col-sm-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="/img/${car.image} "/>
-                    <div class="card-body">
-                        <h5 class="card-title">${car.brand} ${car.model}</h5>
-                        <p class="card-text">it allgoes for 1,000,000</p>
-                        <a href="listing.html?id=${car.id}" class="btn btn-primary">view me</a>
-                    </div>
-                </div>
-            </div>`;
-                        });
-                        $("#allcars").html(mapped);
                     }
                 });
-
-
-
-
-
-            });
+            })
+        })
+    </script>
+    < script src="\index.js">
         </script>
 </body>
 

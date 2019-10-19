@@ -24,6 +24,9 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Signup</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
                     <li class="nav-item">
@@ -45,46 +48,82 @@
             </div>
         </div>
     </nav>
+
     <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <h1>
+        <p>Please fill in this form to create an account.</p>
+    </h1>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-    <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-          </label>
-
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-    <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+    <div class="container my-4">
+        <div class="card mx-auto my-auto" style="width: 200%; max-width: 32rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">user sign up</h1>
+                    <!-- <div class="alert alert-danger" id="invalid">Invalid Username or Password</div>
+                    <div class="alert alert-success" id="valid">Login Successfull</div> -->
+                    <form id="loginForm">
+                        <!-- <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" name="surname" id="surname" class="form-control" placeholder="Surname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">Firstname</label>
+                            <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Firstname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Gender</label>
+                            <input type="text" name="gender" id="gender" class="form-control" placeholder="gender" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Email</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm password">Confirm Password</label>
+                            <input type="password" name="confirm password" id="confirmPassword" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="phone" name="phone" id="phone" class="form-control" placeholder="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="address" name="address" id="address" class="form-control" placeholder="address" required>
+                        </div>
+                        <input type="submit" value="Sign Up" class="btn btn-secondary btn-block">
+                    </form>
+            </div>
+        </div>
     </div>
-    </div>
-    </form>
-    </div>
-    <p> Our services include:</p>
-    <ul>
-        <li>Customer Experience</li>
-        <li>Referrals</li>
-        <li>inspection</li>
-        <li>cooperate services</li>
-    </ul>
-    </div>
-    </section>
-
     <script src=" \jquery-3.4.1.min.js "></script>
 
     <script>
-        $(document).ready(function() {
-            $("ul").append("<li> append list item");
+        $('#loginForm').on('submit', function(e) {
+            e.preventDefault();
+            let surname = $('#surname').val();
+            let firstname = $('#firstname').val();
+            let gender = $('#gender').val();
+            let email = $('#email').val();
+            let password = $('#password').val();
+            let confirmPassword = $('#confirmPassword').val();
+            let phone = $('#phone').val();
+            let address = $('#address').val();
+
+            console.log(surname)
+            console.log(firstname)
+            console.log(gender)
+            console.log(email)
+            console.log(password)
+            console.log(confirmPassword)
+            console.log(phone)
+            console.log(address)
         })
     </script>
     <script src=".\index.js"></script>

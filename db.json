@@ -32,6 +32,15 @@
       "password": "Submit Listing",
       "image": "",
       "id": 3
+    },
+    {
+      "brand": "toyota",
+      "model": "camry",
+      "year": "2019",
+      "price": "2,000,000",
+      "color": "#ff80c0",
+      "image": "C:\\Users\\faith\\Desktop\\CarListing\\public\\img\\download.png",
+      "id": 4
     }
   ]
 }
