@@ -24,6 +24,9 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Signup</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
                     <li class="nav-item">
@@ -55,6 +58,7 @@
                     <th>S.No</th>
                     <th>brand</th>
                     <th>model</th>
+                    <th>year</th>
                     <th>price</th>
                     <th>color</th>
                     <th>image</th>
@@ -74,6 +78,7 @@
                         selector += '<td>' + value.id + '</td>';
                         selector += '<td>' + value.brand + '</td>';
                         selector += '<td>' + value.model + '</td>';
+                        selector += '<td>' + value.year + '</td>';
                         selector += '<td>' + value.price + '</td>';
                         selector += '<td>' + value.color + '</td>';
                         selector += '<td>' + value.image + '</td>';
@@ -103,7 +108,7 @@
                 e.preventDefault();
                 let brand = $('#brand').val();
                 let model = $('#model').val();
-                let telephone = $('#telephone').val();
+                let year = $('#year').val();
                 let email = $('#email').val();
                 let price = $('#price').val();
                 let color = $('#color').val();
@@ -131,7 +136,6 @@
                         image
                     }
                 }).done(function() {
-
                     alert("carlisting Successfully Updated");
                 });
             });
