@@ -78,57 +78,66 @@
                             <label for="image">Image Url</label>
                             <input type="url" name="image" id="image" class="form-control" placeholder="image url" required>
                         </div>
-                        <input type="submit" value="Update" class="btn btn-secondary btn-block">
+                        <input type="submit" value="Update" class="btn btn-secondary btn-block" id="updatelist">
                     </form>
             </div>
         </div>
     </div>
 
-    <script src=" \jquery-3.4.1.min.js ">
-    </script>
-    <script>
-        $(document).ready(function() {
+    <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="./img/toyota 1.webp" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">ALL CARS</h5>
+                <p class="card-text">it all goes for ""</p>
+                <a href="output.html" class="btn btn-primary">view me</a>
+            </div>
 
-            const urlParams = new URLSearchParams(window.location.search);
+            <script src=" \jquery-3.4.1.min.js ">
+            </script>
+            <script>
+                $(document).ready(function() {
 
-            $('#updateForm').on('submit', function(e) {
-                e.preventDefault();
-                let brand = $('#brand').val();
-                let model = $('#model').val();
-                let year = $('#year').val();
-                let price = $('#price').val();
-                let color = $('#color').val();
-                let image = $('#image').val();
+                    const urlParams = new URLSearchParams(window.location.search);
 
-                console.log(brand)
-                console.log(model)
-                console.log(year)
-                console.log(price)
-                console.log(color)
-                console.log(image)
-                $.ajax({
-                    url: "http://localhost:3000/carslisting",
-                    success: function(result) {
-                        location.reload()
-                            // $("#div1").html(result);     
-                        console.log(result)
-                    },
-                    method: "PATCH",
-                    data: {
-                        brand,
-                        model,
-                        year,
-                        price,
-                        color,
-                        image
+                    $('#updatelist').on('submit', function(e) {
+                        e.preventDefault();
+                        let brand = $('#brand').val();
+                        let model = $('#model').val();
+                        let year = $('#year').val();
+                        let price = $('#price').val();
+                        let color = $('#color').val();
+                        let image = $('#image').val();
 
-                    }
-                });
-            })
-        })
-    </script>
-    < script src="\index.js">
-        </script>
+                        console.log(brand)
+                        console.log(model)
+                        console.log(year)
+                        console.log(price)
+                        console.log(color)
+                        console.log(image)
+                        $.ajax({
+                            url: "http://localhost:3000/carslisting",
+                            success: function(result) {
+                                location.reload()
+                                    // $("#div1").html(result);     
+                                console.log(result)
+                            },
+                            method: "PATCH",
+                            data: {
+                                brand,
+                                model,
+                                year,
+                                price,
+                                color,
+                                image
+
+                            }
+                        });
+                    })
+                })
+            </script>
+            < script src="\index.js">
+                </script>
 </body>
 
 </html>

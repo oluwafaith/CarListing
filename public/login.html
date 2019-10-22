@@ -81,18 +81,26 @@
                         success: function(selector) {
                             console.log(selector);
                             if (!selector.length) {
-                                alert('successful')
-                                location.replace('services.html');
+                                alert('Wrong email')
+                                return false;
                             }
 
-                            if (selector[0].password !== $password) {
-                                alert('wrong credentials')
-                                return;
+                            if (selector[0].email === $email) {
+                                if (selector[0].password !== $password) {
+                                    alert('wrong credentials')
+                                    return;
+                                } else {
+                                    sessionStorage.clear();
+                                    sessionStorage.setItem("userEmail", JSON.stringify($email));
+                                    location.replace('About.html');
+                                }
+                            } else {
+                                alert("Wrong email");
+                                return false;
                             }
 
-                            if (cars[3].email === 'email') {
-                                location.replace('services.html')
-                            }
+
+
 
 
                         }

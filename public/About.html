@@ -48,12 +48,17 @@
             </div>
         </div>
     </nav>
-    <div class="container my-4">
+    <h1>Welcome, <span id="username"></span></h1>
+    <p>You have <span id="no-of-cars"></span> car(s) in your dashboard</p>
+    <p>Click add car to a car</p>
+    <div id="display-cars" style="display: flex; width: 80%;"></div>
+    <div><a href="#showform" class="btn btn-success">Add Car</a></div>
+    <div class="container my-4" id="showform">
         <div class="card mx-auto my-auto" style="width: 200%; max-width: 32rem;">
             <div class="card-body">
                 <h3 class="card-title text-center">create a car</h1>
 
-                    <form id="createForm">
+                    <form id="form-car" method="POST">
                         <div class="form-group">
                             <label for="brand">Brand</label>
                             <input type="text" name="brand" id="brand" class="form-control" placeholder="Brand" required>
@@ -78,57 +83,19 @@
                             <label for="image">Image Url</label>
                             <input type="url" name="image" id="image" class="form-control" placeholder="image url" required>
                         </div>
-                        <input type="submit" value="Create" class="btn btn-secondary btn-block">
+                        <input type="submit" value="Create" id="create" class="btn btn-secondary btn-block">
+                        <button id="update" style="display: none;" class="btn btn-secondary">Update</button>
+                        <input type="reset" value="Cancel" id="cancel" style="display: none;" class="btn btn-secondary">
                     </form>
             </div>
         </div>
     </div>
 
-    <script src=" \jquery-3.4.1.min.js ">
+    <script src="\jquery-3.4.1.min.js ">
     </script>
-    <script>
-        $(document).ready(function() {
 
-            const urlParams = new URLSearchParams(window.location.search);
-
-            $('#createForm').on('submit', function(e) {
-                e.preventDefault();
-                let brand = $('#brand').val();
-                let model = $('#model').val();
-                let year = $('#year').val();
-                let price = $('#price').val();
-                let color = $('#color').val();
-                let image = $('#image').val();
-
-                console.log(brand)
-                console.log(model)
-                console.log(year)
-                console.log(price)
-                console.log(color)
-                console.log(image)
-                $.ajax({
-                    url: "http://localhost:3000/carslisting",
-                    success: function(result) {
-                        location.reload()
-                            // $("#div1").html(result);     
-                        console.log(result)
-                    },
-                    method: "POST",
-                    data: {
-                        brand,
-                        model,
-                        year,
-                        price,
-                        color,
-                        image
-
-                    }
-                });
-            })
-        })
+    <script src="./about.js">
     </script>
-    < script src="\index.js">
-        </script>
 </body>
 
 </html>

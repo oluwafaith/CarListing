@@ -74,11 +74,11 @@
                             <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Firstname" required>
                         </div>
                         <div class="form-group">
-                            <label for="username">Gender</label>
+                            <label for="gender">Gender</label>
                             <input type="text" name="gender" id="gender" class="form-control" placeholder="gender" required>
                         </div>
                         <div class="form-group">
-                            <label for="username">Email</label>
+                            <label for="email">Email</label>
                             <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
                         </div>
                         <div class="form-group">
@@ -97,36 +97,90 @@
                             <label for="address">Address</label>
                             <input type="address" name="address" id="address" class="form-control" placeholder="address" required>
                         </div>
-                        <input type="submit" value="Sign Up" class="btn btn-secondary btn-block">
+                        <input type="submit" value="Sign Up" class="btn btn-secondary btn-block" id="btnsignup">
                     </form>
             </div>
         </div>
     </div>
     <script src=" \jquery-3.4.1.min.js "></script>
+    <script>
+        // $('#btnsignup').on('submit', function(e) {
+        //             e.preventDefault();
+        //             const firstname = $('#firstname').val();
+        //             const password = $('#password').val();
+        // if (sessionStorage) {
+        //     sessionStorage.setItem("firstname", "faith");
+        //     alert("hi you have successfully signed up" + " " + sessionStorage.getItem("firstname"));
+        // }
+    </script>
 
     <script>
-        $('#loginForm').on('submit', function(e) {
-            e.preventDefault();
-            let surname = $('#surname').val();
-            let firstname = $('#firstname').val();
-            let gender = $('#gender').val();
-            let email = $('#email').val();
-            let password = $('#password').val();
-            let confirmPassword = $('#confirmPassword').val();
-            let phone = $('#phone').val();
-            let address = $('#address').val();
+        // $('#loginform').on('submit', function(e) {
+        //     e.preventDefault();
+        //     let surname = $('#surname').val();
+        //     let firstname = $('#firstname').val();
+        //     let gender = $('#gender').val();
+        //     let email = $('#email').val();
+        //     let password = $('#password').val();
+        //     let confirmPassword = $('#confirmPassword').val();
+        //     let phone = $('#phone').val();
+        //     let address = $('#address').val();
 
-            console.log(surname)
-            console.log(firstname)
-            console.log(gender)
-            console.log(email)
-            console.log(password)
-            console.log(confirmPassword)
-            console.log(phone)
-            console.log(address)
-        })
+        //     console.log(surname)
+        //     console.log(firstname)
+        //     console.log(gender)
+        //     console.log(email)
+        //     console.log(password)
+        //     console.log(confirmPassword)
+        //     console.log(phone)
+        //     console.log(address)
+
+        //     $.ajax({
+        //         url: "http://localhost:3000/carslisting",
+        //         success: function(result) {
+        //             location.reload()
+        //             console.log(result)
+        //         },
+        //         method: "POST",
+        //         data: {
+        //             surname,
+        //             firstname,
+        //             gender,
+        //             email,
+        //             password,
+        //             confirmpassword,
+        //             phone,
+        //             address
+
+        //         }
+        //     });
+        // $.ajax({
+        //     method: "GET",
+        //     url: `http://localhost:3000/carslisting?email=${$email}`,
+        //     success: function(selector) {
+        //         location.reload()
+        //         console.log(selector);
+        //         if (!selector.length) {
+        //             alert('successful')
+        //             location.replace('login.html');
+        //         }
+
+        //         if (selector[0].password !== $password) {
+        //             alert('wrong credentials')
+        //             return;
+        //         }
+
+        //         if (cars[3].email === 'email') {
+        //             location.replace('login.html')
+        //         }
+
+
+        //     }
+        // });
+
+        // })
     </script>
-    <script src=".\index.js"></script>
+    <script src="./signup.js"></script>
 </body>
 
 </html>

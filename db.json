@@ -1,44 +1,64 @@
 {
   "carslisting": [
     {
-      "brand": "toyota",
-      "model": "camry",
-      "telephone": "08025478956",
-      "email": "ajhjaf@gjdh.com",
-      "price": "1,000,000",
-      "color": "#80ff80",
-      "password": "Submit Listing",
-      "image": "download.jpg",
-      "id": 1
+      "id": 1,
+      "surname": " ",
+      "firstname": " ",
+      "gender": " ",
+      "email": " ",
+      "password": " ",
+      "confirmPassword": " ",
+      "phone": " ",
+      "address": " ",
+      "carLists": [
+        {
+          "brand": " ",
+          "model": " ",
+          "year": " ",
+          "price": " ",
+          "color": " ",
+          "image": " "
+        }
+      ]
     },
     {
-      "brand": "lexus",
-      "model": "ariena",
-      "telephone": "080574452214",
-      "email": "ajhjaf@gjdh.com",
-      "price": "1,000,000",
-      "color": "#ffff80",
-      "password": "Submit Listing",
-      "image": "download.png",
-      "id": 2
-    },
-    {
-      "brand": "toyota",
-      "model": "camry",
-      "telephone": "",
+      "surname": "john",
+      "firstname": "mark",
+      "gender": "male",
       "email": "janepaul2001@yahoo.com",
-      "price": "1,000,000",
-      "color": "#000000",
-      "password": "Submit Listing",
-      "image": "",
+      "password": "johnmark",
+      "confirmPassword": "johnmark",
+      "phone": "08025478965",
+      "address": "2 musa anidu street",
+      "id": 2,
+      "carLists": [
+        {
+          "brand": "Toyota",
+          "model": "camry",
+          "year": "2015",
+          "price": "36,00000,000000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/hilux.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "john",
+      "firstname": "mark",
+      "gender": "male",
+      "email": "johnmark@yahoo.com",
+      "password": "johnmark",
+      "confirmPassword": "johnmark",
+      "phone": "08025478965",
+      "address": "2 musa anidu street",
       "id": 3
     },
     {
       "brand": "toyota",
-      "model": "camry",
+      "model": "ariena",
       "year": "2019",
-      "price": "2,000,000",
-      "color": "#ff80c0",
+      "price": "1,000,000",
+      "color": "#80ffff",
       "image": "C:\\Users\\faith\\Desktop\\CarListing\\public\\img\\download.png",
       "id": 4
     }
