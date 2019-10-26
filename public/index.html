@@ -48,59 +48,10 @@
             </div>
         </div>
     </nav>
+    <div id="display-cars" style="display: flex; flex-wrap: wrap; margin:5rem auto; width: 80%;"></div>
 
-    <script>
-        $(document).ready(function() {
-            $('form').on('submit', function(e) {
-                e.preventDefault();
-                let brand = $('#brand').val();
-                let model = $('#model').val();
-                let telephone = $('#telephone').val();
-                let email = $('#email').val();
-                let price = $('#price').val();
-                let isDeleted = $('#isDeleted').val();
-                let color = $('#color').val();
-                let password = $('#password').val();
-                let image = $('#image').val();
-                console.log(brand)
-                console.log(model)
-                console.log(telephone)
-                console.log(email)
-                console.log(price)
-                console.log(isDeleted)
-                console.log(color)
-                console.log(password)
-                console.log(image)
-                $.ajax({
-                    url: "http://localhost:3000/carslisting",
-                    success: function(result) {
-                        // $("#div1").html(result);
-                        console.log(result)
-                    },
-                    method: "POST",
-                    data: {
-                        brand,
-                        model,
-                        telephone,
-                        email,
-                        price,
-                        isDeleted,
-                        color,
-                        password,
-                        image
-                    }
-                });
-            })
-
-        });
-    </script>
-    <script>
-        sessionStorage.setItem("user", "faith");
-        sessionStorage.setItem("occupation", "dentist");
-        console.log(sessionStorage.getItem("user"));
-        console.log(sessionStorage.getItem("dentist"));
-    </script>
-    <script src=".\index.js"></script>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

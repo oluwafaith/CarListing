@@ -1,101 +1,47 @@
 $(document).ready(function() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:3000/carslisting",
+        success: function(response) {
+            let output = "";
+            for (let i = 1; i < response.length; i++) {
+                for (let j = 0; j < response[i].carLists.length; j++) {
+                    const carDetails = response[i].carLists[j];
 
-    const urlParams = new URLSearchParams(window.location.search);
-    // createfromform
-    $('#createForm').on('submit', function(e) {
-        e.preventDefault();
-        let brand = $('#brand').val();
-        let model = $('#model').val();
-        let year = $('#year').val();
-        let price = $('#price').val();
-        let color = $('#color').val();
-        let image = $('#image').val();
-
-        console.log(brand)
-        console.log(model)
-        console.log(year)
-        console.log(price)
-        console.log(color)
-        console.log(image)
-        $.ajax({
-            url: "http://localhost:3000/carslisting",
-            success: function(result) {
-                location.reload()
-                console.log(result)
-            },
-            method: "POST",
-            data: {
-                brand,
-                model,
-                year,
-                price,
-                color,
-                image
-
+                    // Display all cars in the home page
+                    output += `<div class="col-sm-3">
+                    <div class="card" style="width: 18rem; height:20rem;margin-bottom:2rem;">
+                        <img class="card-img-top" src="${carDetails.image}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${carDetails.brand}</h5>
+                            <p class="card-text">&#8358 ${carDetails.price}</p>
+                            <a href="listing.html" class="btn btn-primary view-me" data-car=${i} data-details=${JSON.stringify(response[i].carLists[j])}>view me</a>
+                        </div>
+                    </div>
+                </div>`
+                }
             }
-        });
-    })
-})
+            $("#display-cars").html(output);
 
-//postdatatotable
-$(document).ready(function() {
-    $.getJSON("http://localhost:3000/carslisting", function(data) {
-        //e.preventDefault();
-        var selector = '';
-        $.each(data, function(key, value) {
-            selector += '<tr>';
-            selector += '<td>' + value.id + '</td>';
-            selector += '<td>' + value.brand + '</td>';
-            selector += '<td>' + value.model + '</td>';
-            selector += '<td>' + value.year + '</td>';
-            selector += '<td>' + value.price + '</td>';
-            selector += '<td>' + value.color + '</td>';
-            selector += '<td>' + value.image + '</td>';
-            selector += '<td>' + `<input type ="button" onclick="deleteitem(${value.id})" data-id${value.id} id="deleteDesign" value = "delete"/>` + '</td>';
-            selector += '<td>' + `<input type ="button" onclick="updateitem(${value.id})" data-id${value.id} id="updatelist" value = "update"/>` + '</td>';
-            selector += '</tr>';
-            var id = $(data.target).attr("value.id");
-        });
-        console.log('selector');
-        $('#cars').append(selector);
-    });
-});
-//deletedata
-function deleteitem(id) {
-    $.ajax({
-        url: `http://localhost:3000/carslisting/${id}`,
-        type: "DELETE",
-
-    }).done(function() {
-        location.reload()
-        alert("listing Successfully Deleted");
-    });
-
-}
-
-//updatedata
-$('#updatelist').on('submit', function(e) {
-    e.preventDefault();
-    let brand = $('#brand').val(brand);
-    let model = $('#model').val(model);
-    let year = $('#year').val(year);
-    let price = $('#price').val(price);
-    let color = $('#color').val(color);
-    let image = $('#image').val(image).split("\\").pop();
-
-    $.ajax({
-        url: `http://localhost:3000/carslisting/${id}`,
-        type: "PUT",
-        data: {
-            brand,
-            model,
-            year,
-            price,
-            color,
-            image
+            //view one car
+            $(".view-me").on("click", function(e) {
+                e.preventDefault();
+                let stringifiedCar = $(e.target).attr("data-details");
+                let oneCarInfo = JSON.parse(stringifiedCar);
+                output = `<div class="col-sm-3">
+                    <div class="card" style="width: 18rem; height:20rem;margin-bottom:2rem;">
+                        <img class="card-img-top" src="${oneCarInfo.image}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">${oneCarInfo.brand}</h5>
+                            <p class="card-text">&#8358 ${oneCarInfo.price}</p>
+                            <p class="card-text"> ${oneCarInfo.model}</p>
+                            <p class="card-text"> ${oneCarInfo.year}</p>
+                            <a href="/index.html" class="btn btn-primary">Back</a>
+                        </div>
+                    </div>
+                </div>`
+                $("#display-cars").html(output);
+            })
         }
-    }).done(function() {
-        location.replace('About.html');
-        alert("carlisting Successfully Updated");
     });
 });
