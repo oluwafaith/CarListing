@@ -17,7 +17,7 @@ $.ajax({
             let output = "";
             //show user's cars
             for (let i = 0; i < userData.carLists.length; i++) {
-                output += `<div class="col-sm-3" style="margin: 2rem;">
+                output += `<div class="col-sm-3" style="margin: 3rem;">
             <div id="card${i}" class="card" style="width: 18rem;">
                 <img class="card-img-top" src="${userData.carLists[i].image}" alt="Card image cap">
                 <div class="card-body">
@@ -71,51 +71,11 @@ $.ajax({
 
         //delete car
         $(".card").on("click", function(e) {
-            e.preventDefault();
-            if ($(e.target).hasClass("btn-danger")) {
-                carLists = userData.carLists
-                carId = $(e.target).attr("data-carIndex");
-                carLists.splice(carId, 1);
-                $.ajax({
-                    method: "PATCH",
-                    contentType: 'application/json',
-                    data: JSON.stringify({ carLists }),
-                    url: `http://localhost:3000/carslisting/${userData.id}`,
-                    success: function(response) {
-                        console.log("done");
-                    }
-                });
-                location.reload();
-            }
-
-            //update car
-            if ($(e.target).hasClass("btn-warning")) {
-                carId = $(e.target).attr("data-carIndex");
-                carLists = userData.carLists;
-                console.log(carLists[carId]);
-                $("#brand").val(carLists[carId].brand);
-                $("#model").val(carLists[carId].model);
-                $("#year").val(carLists[carId].year);
-                $("#price").val(carLists[carId].price);
-                $("#color").val(carLists[carId].color);
-                $("#image").val(carLists[carId].image);
-
-
-
-                $("#create").css("display", "none");
-                $("#update").css("display", "block");
-                $("#cancel").css("display", "block");
-
-                $("#update").on("click", function(e) {
-                    e.preventDefault();
-
-                    carLists[carId].brand = $("#brand").val();
-                    carLists[carId].model = $("#model").val();
-                    carLists[carId].year = $("#year").val();
-                    carLists[carId].price = $("#price").val();
-                    carLists[carId].color = $("#color").val();
-                    carLists[carId].image = $("#image").val();
-
+                e.preventDefault();
+                if ($(e.target).hasClass("btn-danger")) {
+                    carLists = userData.carLists
+                    carId = $(e.target).attr("data-carIndex");
+                    carLists.splice(carId, 1);
                     $.ajax({
                         method: "PATCH",
                         contentType: 'application/json',
@@ -126,11 +86,62 @@ $.ajax({
                         }
                     });
                     location.reload();
-                });
+                }
 
-            }
+                //update car
+                if ($(e.target).hasClass("btn-warning")) {
+                    carId = $(e.target).attr("data-carIndex");
+                    carLists = userData.carLists;
+                    console.log(carLists[carId]);
+                    $("#brand").val(carLists[carId].brand);
+                    $("#model").val(carLists[carId].model);
+                    $("#year").val(carLists[carId].year);
+                    $("#price").val(carLists[carId].price);
+                    $("#color").val(carLists[carId].color);
+                    $("#image").val(carLists[carId].image);
 
+
+
+                    $("#create").css("display", "none");
+                    $("#update").css("display", "block");
+                    $("#cancel").css("display", "block");
+
+                    $("#update").on("click", function(e) {
+                        e.preventDefault();
+
+                        carLists[carId].brand = $("#brand").val();
+                        carLists[carId].model = $("#model").val();
+                        carLists[carId].year = $("#year").val();
+                        carLists[carId].price = $("#price").val();
+                        carLists[carId].color = $("#color").val();
+                        carLists[carId].image = $("#image").val();
+
+                        $.ajax({
+                            method: "PATCH",
+                            contentType: 'application/json',
+                            data: JSON.stringify({ carLists }),
+                            url: `http://localhost:3000/carslisting/${userData.id}`,
+                            success: function(response) {
+                                console.log("done");
+                            }
+                        });
+                        location.reload();
+                    });
+
+                }
+
+            })
+            // cancel button
+        $("#cancel").on("click", function(e) {
+            e.preventDefault();
+            window.location.reload();
         })
 
+        //log out button
+        $("#logout").on("click", function(e) {
+            sessionStorage.clear();
+            window.location.replace("http://localhost:3000/login.html");
+        })
     }
+
 });
