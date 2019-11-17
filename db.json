@@ -1,0 +1,196 @@
+{
+  "carslisting": [
+    {
+      "id": 1,
+      "surname": " ",
+      "firstname": " ",
+      "gender": " ",
+      "email": " ",
+      "password": " ",
+      "confirmPassword": " ",
+      "phone": " ",
+      "address": " ",
+      "carLists": [
+        {
+          "brand": " ",
+          "model": " ",
+          "year": " ",
+          "price": " ",
+          "color": " ",
+          "image": " "
+        }
+      ]
+    },
+    {
+      "surname": "Paul",
+      "firstname": "Jane",
+      "gender": "male",
+      "email": "janepaul2001@yahoo.com",
+      "password": "pauljane",
+      "confirmPassword": "pauljane",
+      "phone": "08025478965",
+      "address": "2 musa anidu street",
+      "id": 2,
+      "carLists": [
+        {
+          "brand": "Toyota",
+          "model": "camry",
+          "year": "2015",
+          "price": "36,00000,000000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/hilux.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "john",
+      "firstname": "mark",
+      "gender": "male",
+      "email": "johnmark@yahoo.com",
+      "password": "johnmark",
+      "confirmPassword": "johnmark",
+      "phone": "08025478965",
+      "address": "2 musa anidu street",
+      "id": 3,
+      "carLists": [
+        {
+          "brand": "toyota",
+          "model": "ariena",
+          "year": "2019",
+          "price": "1,000,000",
+          "color": "#80ffff",
+          "image": "http://localhost:3000/img/selfdriving.jpeg",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "surname": "Andrew",
+      "firstname": "Mary",
+      "gender": "female",
+      "email": "mary1@yahoo.com",
+      "password": "mary",
+      "confirmPassword": "mary",
+      "phone": "07023457653",
+      "address": "Lekki, Lagos",
+      "id": 5,
+      "carLists": [
+        {
+          "brand": "lamborghini",
+          "model": "lamboghini",
+          "year": "2018",
+          "price": "100,000,00",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/lamborghini.jpeg"
+        },
+        {
+          "brand": "Suv",
+          "model": "Suv",
+          "year": "2019",
+          "price": "25,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/suv.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "Peter",
+      "firstname": "Pan",
+      "gender": "male",
+      "email": "peterpan@yahoo.com",
+      "password": "pan",
+      "confirmPassword": "pan",
+      "phone": "08025478965",
+      "address": "ghana",
+      "id": 6,
+      "carLists": [
+        {
+          "brand": "Ferari",
+          "model": "ferari",
+          "year": "2017",
+          "price": "30,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/ferari.jpeg"
+        },
+        {
+          "brand": "Ferari",
+          "model": "ferari",
+          "year": "2017",
+          "price": "33,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/ferariblue.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "Lawrence",
+      "firstname": "Segun",
+      "gender": "male",
+      "email": "segun@gmail.com",
+      "password": "segun",
+      "confirmPassword": "segun",
+      "phone": "08065498745",
+      "address": "Yaba, Lagos",
+      "id": 7,
+      "carLists": [
+        {
+          "brand": "Porsche",
+          "model": "porsche",
+          "year": "2017",
+          "price": "40,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/porsche.jpeg"
+        },
+        {
+          "brand": "suzuki",
+          "model": "suzuki",
+          "year": "2016",
+          "price": "25,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/suzuki.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "Tom",
+      "firstname": "Cruise",
+      "gender": "female",
+      "email": "cruise@gmail.com",
+      "password": "cruise",
+      "confirmPassword": "cruise",
+      "phone": "07085478569",
+      "address": "Magodo, Lagos",
+      "id": 8,
+      "carLists": [
+        {
+          "brand": "Self driving",
+          "model": "self driving",
+          "year": "2020",
+          "price": "250,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/selfdriving.jpeg"
+        },
+        {
+          "brand": "Honda",
+          "model": "Honda",
+          "year": "2019",
+          "price": "17,000,000",
+          "color": "#000000",
+          "image": "http://localhost:3000/img/honda.jpeg"
+        }
+      ]
+    },
+    {
+      "surname": "Sunday",
+      "firstname": "Saturday",
+      "gender": "male",
+      "email": "saturday@gmail.com",
+      "password": "saturday",
+      "confirmPassword": "saturday",
+      "phone": "08036578965",
+      "address": "Alimosho Lagos",
+      "id": 9,
+      "carLists": []
+    }
+  ]
+}

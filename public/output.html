@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faithy Car Listing</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="\styles.css">
+
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="nav-bar-brand" href="#"><img src=".\img\images.png" z></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbaarResponsive">
+                <span class=" navbar-toggler-icon"></span>
+            </button>
+            <div clas="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update.html">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Listing.html">Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="output.html">Output</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <body>
+
+        <div class="jumbotron">
+            <h2 class="display-4"><b>All cars</b></h2>
+            <table class="table table-bordered table-striped" id="cars">
+                <tr>
+                    <th>S.No</th>
+                    <th>brand</th>
+                    <th>model</th>
+                    <th>year</th>
+                    <th>price</th>
+                    <th>color</th>
+                    <th>image</th>
+                </tr>
+            </table>
+        </div>
+        <script src=" \jquery-3.4.1.min.js"></script>
+
+        <!-- <script>
+            //postdatatotable
+            $(document).ready(function() {
+                $.getJSON("http://localhost:3000/carslisting", function(data) {
+                    //e.preventDefault();
+                    var selector = '';
+                    $.each(data, function(key, value) {
+                        selector += '<tr>';
+                        selector += '<td>' + value.id + '</td>';
+                        selector += '<td>' + value.brand + '</td>';
+                        selector += '<td>' + value.model + '</td>';
+                        selector += '<td>' + value.year + '</td>';
+                        selector += '<td>' + value.price + '</td>';
+                        selector += '<td>' + value.color + '</td>';
+                        selector += '<td>' + value.image + '</td>';
+                        selector += '<td>' + `<input type ="button" onclick="deleteitem(${value.id})" data-id${value.id} id="deleteDesign" value = "delete"/>` + '</td>';
+                        selector += '<td>' + `<input type ="button" onclick="updateitem(${value.id})" data-id${value.id} id="updateDesign" value = "update"/>` + '</td>';
+                        selector += '</tr>';
+                        var id = $(data.target).attr("value.id");
+                    });
+                    console.log('selector');
+                    $('#cars').append(selector);
+                });
+            });
+            //deletedata
+            function deleteitem(id) {
+                $.ajax({
+                    url: `http://localhost:3000/carslisting/${id}`,
+                    type: "DELETE",
+
+                }).done(function() {
+                    location.reload()
+                    alert("listing Successfully Deleted");
+                });
+
+            }
+            //updatedata
+            $('#updateForm').on('submit', function(e) {
+                e.preventDefault();
+                let brand = $('#brand').val();
+                let model = $('#model').val();
+                let year = $('#year').val();
+                let email = $('#email').val();
+                let price = $('#price').val();
+                let color = $('#color').val();
+                let password = $('#password').val();
+                let image = $('#image').val().split("\\").pop();
+                // console.log(brand)
+                // console.log(model)
+                // console.log(telephone)
+                // console.log(email)
+                // console.log(price)
+                // console.log(color)
+                // console.log(image)
+
+                $.ajax({
+                    url: `http://localhost:3000/carslisting/${id}`,
+                    type: "PATCH",
+                    data: {
+                        brand,
+                        model,
+                        telephone,
+                        email,
+                        price,
+                        color,
+                        password,
+                        image
+                    }
+                }).done(function() {
+                    alert("carlisting Successfully Updated");
+                });
+            });
+        </script> -->
+        <script src="\index.js"></script>
+
+    </body>
+
+</html>

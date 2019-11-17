@@ -1,0 +1,102 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faithy Car Listing</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="\styles.css">
+
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="nav-bar-brand" href="#"><img src=".\img\images.png" z></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbaarResponsive">
+                <span class=" navbar-toggler-icon"></span>
+            </button>
+            <div clas="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update.html">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Listing.html">Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="output.html">Output</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="logout"> Log out</button>
+    <h1>Welcome, <span id="username"></span></h1>
+    <p>You have <span id="no-of-cars"></span> car(s) in your dashboard</p>
+    <p>Click add car to a car</p>
+    <div id="display-cars" style="display: flex; width: 80%;"></div>
+    <div><a href="#showform" class="btn btn-success">Add Car</a></div>
+    <div class="container my-4" id="showform">
+        <div class="card mx-auto my-auto" style="width: 200%; max-width: 32rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">create a car</h1>
+
+                    <form id="form-car" method="POST">
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" name="brand" id="brand" class="form-control" placeholder="Brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" name="model" id="model" class="form-control" placeholder="Model" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Year">Year</label>
+                            <input type="text" name="year" id="year" class="form-control" placeholder="Year" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" id="price" class="form-control" placeholder="Price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="color">Color</label>
+                            <input type="color" name="color" id="color" class="form-control" placeholder="color" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image Url</label>
+                            <input type="url" name="image" id="image" class="form-control" placeholder="image url" required>
+                        </div>
+                        <input type="submit" value="Create" id="create" class="btn btn-secondary btn-block">
+                        <button id="update" style="display: none;" class="btn btn-secondary">Update</button>
+                        <input type="reset" value="Cancel" id="cancel" style="display: none;" class="btn btn-secondary">
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="\jquery-3.4.1.min.js ">
+    </script>
+
+    <script src="./about.js">
+    </script>
+</body>
+
+</html>
